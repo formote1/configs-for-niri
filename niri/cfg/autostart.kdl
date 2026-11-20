@@ -1,0 +1,8 @@
+// ────────────── Startup Applications ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-sh-at-startup
+
+    spawn-at-startup "noctalia"
+    spawn-at-startup "/home/chuck/.config/niri/scripts/bluetooth-off-startup.sh"
+
+    // Virtual keyboard (only if started in tablet mode)
+    spawn-at-startup "/home/chuck/.config/niri/scripts/check-tablet-startup.sh"

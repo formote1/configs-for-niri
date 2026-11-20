@@ -1,0 +1,123 @@
+    window-rule {
+        geometry-corner-radius 20 // Set every window radius to 20
+        clip-to-geometry true
+    }
+
+    window-rule {
+        background-effect {
+          blur true
+          xray false
+        }
+    }
+
+    // Floating Noctalia settings window.
+    window-rule {
+        match app-id="dev.noctalia.Noctalia"
+        open-floating true
+        default-column-width { fixed 1080; }
+        default-window-height { fixed 920; }
+    }
+
+    // Dolphin: same launch behavior as Noctalia (floating, fixed size).
+    window-rule {
+        match app-id=r#"^(org\.kde\.dolphin|dolphin)$"#
+        open-floating true
+        default-column-width { fixed 1080; }
+        default-window-height { fixed 920; }
+    }
+
+    // if you use steam you will probably like these
+    window-rule {
+        match app-id="steam"
+        exclude title=r#"^[Ss]team$"#
+        open-floating true
+    }
+
+    window-rule {
+        match app-id="^kitty$"
+        open-floating true
+	default-column-width { fixed 950; }
+        default-window-height { fixed 620; }
+    }
+
+    window-rule {
+       match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+       default-floating-position x=10 y=10 relative-to="bottom-right"
+       open-focused false
+    }
+
+    // Browsers and messengers open at full workspace width.
+    window-rule {
+        match app-id=r#"^(brave-origin|Brave)$"#
+        default-column-width { proportion 1.0; }
+    }
+
+    window-rule {
+        match app-id=r#"^(org\.telegram\.desktop|TelegramDesktop)$"#
+        default-column-width { proportion 1.0; }
+    }
+
+    window-rule {
+        match app-id=r#"^(org\.ayugram\.desktop|AyuGram)$"#
+        default-column-width { proportion 1.0; }
+    }
+
+    // Floating apps.
+    window-rule {
+        match app-id=r#"^(obsidian|md\.obsidian\.Obsidian)$"#
+        open-floating true
+        default-column-width { fixed 1249; }
+        default-window-height { fixed 846; }
+    }
+
+    window-rule {
+        match app-id=r#"^(Motrix|motrix|com\.motrix\.motrix)$"#
+        open-floating true
+        default-column-width { fixed 1249; }
+        default-window-height { fixed 846; }
+    }
+
+    window-rule {
+	match app-id="^org\\.gnome\\.clocks$"
+	open-floating true
+	default-column-width { fixed 450; }
+	default-window-height { fixed 500; }
+    }
+
+    // BudsLink: open floating at its current size, pinned top-right.
+    window-rule {
+        match app-id=r#"^io\.github\.maniacx\.BudsLink$"#
+        open-floating true
+        default-column-width { fixed 402; }
+        default-window-height { fixed 445; }
+        default-floating-position x=10 y=10 relative-to="top-right"
+    }
+
+    // LocalSend: reopen floating at its previous size, centered.
+    window-rule {
+        match app-id=r#"^org\.localsend\.localsend_app$"#
+        open-floating true
+        default-column-width { fixed 852; }
+        default-window-height { fixed 630; }
+    }
+
+    // Files (Nautilus): open floating at its current size; floats are centered by default.
+    window-rule {
+        match app-id=r#"^(org\.gnome\.Nautilus|nautilus)$"#
+        open-floating true
+        default-column-width { fixed 807; }
+        default-window-height { fixed 606; }
+    }
+
+    layer-rule {
+        match namespace="^noctalia-wallpaper"
+        place-within-backdrop true
+    }
+
+    layer-rule {
+        match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+        background-effect {
+          xray false
+          // blur false
+        }
+    }

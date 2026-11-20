@@ -1,0 +1,185 @@
+binds {
+    Alt+Shift+G { spawn-sh "~/.config/niri/scripts/toggle-gaps.sh"; }
+
+    // ────────────── Keybindings ──────────────
+    // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
+
+    // ─── noctalia-shell keybinds ───
+    // https://docs.noctalia.dev/getting-started/keybinds/
+
+
+    // Press Mod+Shift+S (or whatever key you prefer) to select an area and OCR it
+        Mod+Ctrl+E { spawn "sh" "-c" "grim -g \"$(slurp)\" - | tesseract stdin stdout | wl-copy"; }
+
+    Mod+Shift+ESCAPE                     { show-hotkey-overlay; }
+    Mod+Shift+Slash                      hotkey-overlay-title="Show Available Commands" { show-hotkey-overlay; }
+
+    // ─── Applications ───
+    Mod+Return                          hotkey-overlay-title="Open Terminal: kitty" { spawn "kitty"; }
+    Mod+B                               hotkey-overlay-title="Cycle Power Profile: noctalia power-cycle" { spawn-sh "noctalia msg power-cycle"; }
+    Mod+Space                           hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    ALT+Space                           hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    ALT+Shift+C                          hotkey-overlay-title="Open App Launcher: Brave Origin" {spawn "brave-origin"; }
+    ALT+Shift+Z                         hotkey-overlay-title="Open Telegram" {spawn "Telegram"; }
+    ALT+Shift+A                         hotkey-overlay-title="Open AyuGram" {spawn "AyuGram"; }
+    Mod+Ctrl+S                          hotkey-overlay-title="Open LocalSend" { spawn "localsend"; }
+    Mod+Alt+B                           hotkey-overlay-title="Open Obsidian" { spawn "obsidian"; }
+
+    // ─── Media Player ───
+    Mod+A                               hotkey-overlay-title="Media Player: noctalia control center" { spawn-sh "noctalia msg panel-toggle control-center media"; }
+
+    // ─── Color Picker ───
+    ALT+Shift+1                         hotkey-overlay-title="Pick Color: copy hex to clipboard" { spawn-sh r#"niri msg pick-color | awk '/^Hex:/ { printf "%s", $2 }' | wl-copy"#; }
+	
+    // --- Noctalia ---
+    Mod+Shift+Return                    hotkey-overlay-title="Open Wallpaper Selector: noctalia wallpaper toggle" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    ALT+BracketLeft                     hotkey-overlay-title="Previous Wallpaper: noctalia wallpaper-previous" { spawn-sh "noctalia msg wallpaper-previous"; }
+    ALT+BracketRight                    hotkey-overlay-title="Next Wallpaper: noctalia wallpaper-next" { spawn-sh "noctalia msg wallpaper-next"; }
+    ALT+A                               hotkey-overlay-title="Network Settings: noctalia controlCenter network" { spawn-sh "noctalia msg panel-toggle control-center network"; }
+    ALT+N                               hotkey-overlay-title="System Resources: noctalia controlCenter system" { spawn-sh "noctalia msg panel-toggle control-center system"; }
+    ALT+B                               hotkey-overlay-title="Bluetooth Devices: noctalia controlCenter bluetooth" { spawn-sh "noctalia msg panel-toggle control-center bluetooth"; }
+    ALT+P                               hotkey-overlay-title="Wallpaper Changer: noctalia wallpaper" { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    ALT+C                               hotkey-overlay-title="Calendar: noctalia controlCenter calendar" { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
+    Mod+Comma                           hotkey-overlay-title="Open Settings: noctalia settings" { spawn-sh "noctalia msg settings-toggle"; }
+    ALT+V                               hotkey-overlay-title="Clipboard History: noctalia clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+    Mod+Shift+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "noctalia msg session lock"; }
+    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "noctalia msg panel-toggle session"; }
+
+    // Please set the text editor of your choice.
+    Mod+Shift+E                               hotkey-overlay-title="Open Text Editor: micro" { spawn "micro"; }
+
+    // Please choose your own file manager.
+    Mod+E                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
+
+    // ─── Media Controls ───
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute                       allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn-sh "noctalia msg mic-mute"; }
+    XF86AudioNext                       allow-when-locked=true { spawn-sh "noctalia msg media next"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+    XF86AudioPlay                       allow-when-locked=true { spawn-sh "noctalia msg media play"; }
+    XF86AudioPause                      allow-when-locked=true { spawn-sh "noctalia msg media stop"; }
+    F10                                 allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+
+    // ─── Brightness Controls ───
+    XF86MonBrightnessUp                 allow-when-locked=true { spawn-sh "noctalia msg brightness-up"; }
+    XF86MonBrightnessDown               allow-when-locked=true { spawn-sh "noctalia msg brightness-down"; }
+
+    // ─── Window Movement and Focus ───
+    Mod+Q                               { close-window; }
+
+    Mod+Left                            { focus-column-left; }
+    Mod+H                               { focus-column-left; }
+    Mod+Right                           { focus-column-right; }
+    Mod+L                               { focus-column-right; }
+    Mod+Up                              { spawn-sh "$HOME/.config/niri/scripts/focus-or-workspace.sh up"; }
+    Mod+K                               { spawn-sh "$HOME/.config/niri/scripts/focus-or-workspace.sh up"; }
+    Mod+Down                            { spawn-sh "$HOME/.config/niri/scripts/focus-or-workspace.sh down"; }
+    Mod+J                               { spawn-sh "$HOME/.config/niri/scripts/focus-or-workspace.sh down"; }
+
+    Mod+CTRL+Left                       { move-column-left; }
+    Mod+CTRL+H                          { move-column-left; }
+    Mod+CTRL+Right                      { move-column-right; }
+    Mod+CTRL+L                          { move-column-right; }
+    Mod+CTRL+Up                         { spawn-sh "$HOME/.config/niri/scripts/move-or-workspace.sh up"; }
+    Mod+CTRL+K                          { spawn-sh "$HOME/.config/niri/scripts/move-or-workspace.sh up"; }
+    Mod+CTRL+Down                       { spawn-sh "$HOME/.config/niri/scripts/move-or-workspace.sh down"; }
+    Mod+CTRL+J                          { spawn-sh "$HOME/.config/niri/scripts/move-or-workspace.sh down"; }
+
+    Mod+Home                            { focus-column-first; }
+    Mod+End                             { focus-column-last; }
+    Mod+CTRL+Home                       { move-column-to-first; }
+    Mod+CTRL+End                        { move-column-to-last; }
+
+    Mod+Shift+Left                      { focus-monitor-left; }
+    Mod+Shift+Right                     { focus-monitor-right; }
+    Mod+Shift+UP                        { focus-monitor-up; }
+    Mod+Shift+Down                      { focus-monitor-down; }
+
+    Mod+Shift+CTRL+Left                 { move-column-to-monitor-left; }
+    Mod+Shift+CTRL+Right                { move-column-to-monitor-right; }
+    Mod+Shift+CTRL+UP                   { move-column-to-monitor-up; }
+    Mod+Shift+CTRL+Down                 { move-column-to-monitor-down; }
+    Mod+Shift+V                         hotkey-overlay-title="Edit Niri Keybinds Config" { spawn-sh "kitty -e micro ~/.config/niri/cfg/keybinds.kdl"; }
+
+    Mod+BracketLeft                     { consume-or-expel-window-left; }
+    Mod+BracketRight                    { consume-or-expel-window-right; }
+
+    Mod+Period                          { expel-window-from-column; }
+
+    Mod+R                               { switch-preset-column-width; }
+    Mod+Shift+R                         { switch-preset-column-width-back; }
+
+    Mod+Ctrl+Shift+R                    { switch-preset-window-height; }
+    Mod+Ctrl+R                          { reset-window-height; }
+
+
+    // ─── Workspace Switching ───
+    Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp                   cooldown-ms=150 { focus-workspace-up; }
+    Mod+CTRL+WheelScrollDown            cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+CTRL+WheelScrollUp              cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight                { focus-column-right; }
+    Mod+WheelScrollLeft                 { focus-column-left; }
+    Mod+CTRL+WheelScrollRight           { move-column-right; }
+    Mod+CTRL+WheelScrollLeft            { move-column-left; }
+
+    Mod+Shift+WheelScrollDown           { focus-column-right; }
+    Mod+Shift+WheelScrollUp             { focus-column-left; }
+    Mod+CTRL+Shift+WheelScrollDown      { move-column-right; }
+    Mod+CTRL+Shift+WheelScrollUp        { move-column-left; }
+
+    ALT+1                               { focus-workspace 1; }
+    ALT+2                               { focus-workspace 2; }
+    ALT+3                               { focus-workspace 3; }
+    ALT+4                               { focus-workspace 4; }
+    ALT+5                               { focus-workspace 5; }
+
+    ALT+CTRL+1                          { move-column-to-workspace 1; }
+    ALT+CTRL+2                          { move-column-to-workspace 2; }
+    ALT+CTRL+3                          { move-column-to-workspace 3; }
+    ALT+CTRL+4                          { move-column-to-workspace 4; }
+    ALT+CTRL+5                          { move-column-to-workspace 5; }
+
+    // ─── Move focused window to workspace (Mod = Super) ───
+    Mod+1                               repeat=false { move-window-to-workspace 1; }
+    Mod+2                               repeat=false { move-window-to-workspace 2; }
+    Mod+3                               repeat=false { move-window-to-workspace 3; }
+    Mod+4                               repeat=false { move-window-to-workspace 4; }
+
+    Mod+TAB                             { focus-workspace-previous; }
+
+    // ─── Layout Controls ───
+    Mod+CTRL+F                          { expand-column-to-available-width; }
+    Mod+C                               hotkey-overlay-title="Open Browser: Brave" { spawn "brave-origin"; }
+    Mod+CTRL+C                          { center-visible-columns; }
+    Mod+Minus                           { set-column-width "-10%"; }
+    Mod+Equal                           { set-column-width "+10%"; }
+    Mod+Shift+Minus                     { set-window-height "-10%"; }
+    Mod+Shift+Equal                     { set-window-height "+10%"; }
+
+
+    // ─── Modes ───
+    Mod+Shift+K                         hotkey-overlay-title="Toggle On-Screen Keyboard" { spawn "wvkbd-service" "toggle"; }
+    Mod+V                               { toggle-window-floating; }
+    Mod+F                               hotkey-overlay-title="Tile (if floating) and Maximize" { spawn-sh "$HOME/.config/niri/scripts/toggle-tiling-maximize.sh"; }
+    Mod+Shift+F                         { fullscreen-window; }
+    Mod+W                               repeat=false { toggle-overview; }
+    Mod+M                               { maximize-window-to-edges; }
+
+    // ─── Screenshots ───
+    Mod+Shift+S                        { screenshot; }
+    Mod+Shift+A                        { screenshot-screen; }
+    Mod+Shift+3                        { screenshot-window; }
+
+    // ─── Emergency Escape Key ───
+    // Use this when a fullscreen app blocks your keybinds.
+    // It disables any active keyboard shortcut inhibitor, restoring control.
+    Mod+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // ─── Exit / Power ───
+    CTRL+ALT+Delete                     { quit; } // Also quits Niri
+    Mod+Shift+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
+}

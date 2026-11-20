@@ -1,0 +1,232 @@
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    center = [ "clock", "nightlight" ]
+    compositor_blur = false
+    end = [ "group:g2", "group:g1" ]
+    font_family = "JetBrainsMono NF"
+    margin_edge = 4
+    margin_ends = 4
+    radius = 21
+    scale = 1.2000000104308128
+    shadow = false
+    start = [ "group:g3", "group:g4" ]
+    thickness = 35
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "tray", "bluetooth", "volume", "input_volume", "network", "brightness", "battery", "session" ]
+        opacity = 1.0
+        padding = 0.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "control-center", "wallpaper", "workspaces", "media" ]
+        opacity = 1.0
+        padding = 0.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "cpu", "ram" ]
+        opacity = 1.0
+        padding = 10.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "temp", "network_rx" ]
+        opacity = 1.0
+        padding = 10.0
+
+[battery]
+warning_threshold = 21
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+icon_size = 39
+item_spacing = 7
+main_axis_padding = 9
+position = "right"
+reserve_space = false
+smart_auto_hide = true
+
+[idle]
+pre_action_fade_seconds = 5
+
+[location]
+address = "Xonqa, Xorazm, Uzbekistan"
+
+[lockscreen]
+transition = [ "fade" ]
+transition_duration = 800
+
+[lockscreen_widgets]
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 1078.0
+    output = "eDP-1"
+    placement_height = 1200.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = true
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+history_retention_hours = 1
+keep_dismissed_in_history = false
+position = "top_center"
+width = 300
+
+[shell]
+clipboard_history_max_entries = 50
+password_style = "random"
+polkit_agent = true
+
+    [shell.launcher]
+    compact = true
+
+        [shell.launcher.providers.calculator]
+        prefix = "="
+
+        [shell.launcher.providers.emoji]
+        global = true
+
+    [shell.panel]
+    session_placement = "floating"
+    session_position = "bottom_center"
+    transparency_mode = "glass"
+
+    [shell.screenshot]
+    directory = "/home/chuck/Pictures/Screenshots"
+
+[system.monitor]
+ram_pct_activity_threshold = 70
+
+[theme]
+builtin = "Tokyo-Night"
+mode = "dark"
+pure_black_dark = true
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "alacritty" ]
+
+[wallpaper]
+directory = "/home/chuck/Documents/wall/BogCollab"
+transition = [ "disc" ]
+transition_duration = 500
+transition_on_startup = true
+
+    [wallpaper.default]
+    path = "/home/chuck/Documents/wall/BogCollab/dark-star.jpg"
+
+    [wallpaper.last]
+    path = "/home/chuck/Documents/wall/BogCollab/dark-star.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/chuck/Documents/wall/BogCollab/dark-star.jpg"
+
+[widget.battery]
+display_mode = "none"
+
+[widget.brightness]
+show_label = false
+
+[widget.cpu]
+show_glyph = false
+visualization = "none"
+
+[widget.input_volume]
+mute_color = "on_surface"
+show_label = false
+
+[widget.media]
+hide_album_art = true
+hide_artist = true
+hide_when_no_media = true
+max_length = 140
+
+[widget.network]
+show_label = false
+
+[widget.network_rx]
+interactive = false
+network_speed_compact = true
+show_glyph = false
+visualization = "none"
+
+[widget.ram]
+interactive = false
+show_glyph = false
+
+[widget.sysmon]
+visualization = "none"
+
+[widget.temp]
+glyph_position = "after"
+interactive = false
+show_glyph = false
+
+[widget.volume]
+mute_color = "on_surface"
+show_label = false
+
+[widget.workspaces]
+capsule = true

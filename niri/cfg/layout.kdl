@@ -1,0 +1,30 @@
+    layout {
+        gaps 6
+        center-focused-column "never" // Don’t auto-center focused column
+
+        background-color "transparent" // <- needed for noctalia-shell to set wallpaper
+
+        focus-ring {
+            // Thin, subtle ring matching the Noctalia Tokyo-Night palette.
+            width 1
+            active-color "#7aa2f780"
+            inactive-color "#565f8960"
+        }
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+
+        struts {}
+    }
+
+    overview {
+        // Don't draw a shadow/box around workspace tiles in the overview.
+        // With the transparent workspace background, empty workspaces would
+        // otherwise show up as a floating square.
+        workspace-shadow {
+            off
+        }
+    }
